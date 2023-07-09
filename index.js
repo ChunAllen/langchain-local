@@ -19,11 +19,13 @@ import fs from 'fs';
 // Load Environment Variables
 dotenv.config()
 
+// Load local files such as .json and .txt from ./docs
 const loader = new DirectoryLoader("./docs", {
   ".json": (path) => new JSONLoader(path),
   ".txt": (path) => new TextLoader(path)
 })
 const VECTOR_STORE_PATH = "Documents.index";
+
 
 const normalizeDocuments = (docs) => {
   return docs.map((doc) => {
