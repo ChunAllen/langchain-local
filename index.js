@@ -48,14 +48,6 @@ export const run = async (params) => {
 
   let vectorStore;
 
-  // if (fs.existsSync(VECTOR_STORE_PATH)) {
-  //   console.log('Loading existing vector store...')
-  //   vectorStore = await HNSWLib.load(
-  //     VECTOR_STORE_PATH,
-  //     new OpenAIEmbeddings()
-  //   );
-  //   console.log("Vector store loaded.");
-  // } else {
   console.log('Creating new vector store...')
   const textSplitter = new RecursiveCharacterTextSplitter({
     chunkSize: 1000,
@@ -70,7 +62,6 @@ export const run = async (params) => {
 
   await vectorStore.save(VECTOR_STORE_PATH);
   console.log("Vector store created.")
-  // }
 
   console.log("Creating retrieval chain...")
   const chain = RetrievalQAChain.fromLLM(model, vectorStore.asRetriever())
@@ -83,11 +74,7 @@ export const run = async (params) => {
   console.log("Querying chain...")
   const res = await chain.call({ query: prompt })
 
-  // const res = await model.call(prompt)
-
   console.log(res)
-
-  // console.log({ res })
 }
 
 run(process.argv.slice(2))
