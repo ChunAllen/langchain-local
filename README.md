@@ -1,6 +1,9 @@
-# Lanchain Local
+# Process local files with Langchain
 
 Sample Node.js app that uses OpenAI to process local data using Langchain
+
+Medium Article: https://medium.com/@allenchun/feed-local-data-to-llm-using-langchain-node-js-fd7ac44093e9
+
 
 ### How it works
 - Langchain processes it by loading documents inside docs/ (In this case, we have a sample data.txt)
