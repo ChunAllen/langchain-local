@@ -45,7 +45,7 @@ export const run = async (params) => {
   const docs = await loader.load();
 
   console.log('Processing...')
-  const model = new OpenAI({ openAIApiKey: process.env.OPENAI_API_KEY });
+  const model = new OpenAI({ openAIApiKey: process.env.OPENAI_API_KEY, modelName: process.env.OPENAI_API_MODEL });
 
   let vectorStore;
 
